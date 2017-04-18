@@ -1,0 +1,155 @@
+<title>{{pagetitle}}</title>
+<div class="wrapper" style="margin-top:15px;">
+    <!-- Left side column. contains the logo and sidebar -->
+    <siswa-Topnavdirective></siswa-Topnavdirective>
+    <siswa-Sidebardirective></siswa-Sidebardirective>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="navHeader">
+            <span class="">
+                <strong><i class="fa fa-play"></i>&nbsp; {{output.judul}}</strong>
+            </span >
+            <ol class="breadcrumb pull-right" style="text-align: left;margin-top:-10px; margin-bottom: 10px; margin-right:5px;background-color:transparent;">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>            
+                <li>Paket Pembelajaran</li>
+                <li >Mata Pelajaran</li>
+                <li >Modul</li>
+            </ol>
+        </div>
+
+        <br>
+        <!-- Main content -->
+
+        <section class="content">            
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="info-box bg-teal">
+                        <span class="info-box-icon">
+
+                            <span ng-if="output.questions !== 'NONE'">{{output.questions.nilai_akhir}} </span>
+                            <span ng-if="output.questions === 'NONE'">0 </span>
+                        </span>
+                        <div class="info-box-content">                                    
+                            <span class="info-box-number ng-binding" style="margin-top:25px;text-align:center; word-wrap:break-word;font-size: 100%;">Nilai Anda</span>
+                        </div><!-- /.info-box-content -->
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="box box-solid">                                
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="nav nav-pills nav-stacked"> 
+                                    <li><a href="#"><i class="fa  fa-check-circle text-green"></i> <label>Jawaban benar : </label> 
+                                            <span ng-if="output.questions !== 'NONE'">{{output.questions.jumlah_benar}} soal </span>
+                                            <span ng-if="output.questions === 'NONE'">0 soal </span>
+                                        </a></li>
+                                    <li><a href="#"><i class="fa fa-times-circle text-red"></i> <label>Jawaban salah : </label>  
+                                            <span ng-if="output.questions !== 'NONE'">{{output.questions.jumlah_salah}} soal </span>
+                                            <span ng-if="output.questions === 'NONE'">0 soal </span>      
+                                        </a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6" style="margin-left: -25px;">
+                                <ul class="nav nav-pills nav-stacked">                                            
+                                    <li><a href="#"><i class="fa fa-calendar-o text-blue"></i> <label>Diselesaikan pada : </label> 
+                                            <span ng-if="output.questions !== 'NONE'">{{output.questions.tgl_selesai}}</span>
+                                            <span ng-if="output.questions === 'NONE'"> -  </span>
+                                        </a></li>                                        
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                     <div class="box box-widget">    
+                        <div class="box-header">
+                            <i class="fa fa-arrow-circle-o-right"></i> Modul {{output.judul}}
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        
+                        <div class="box-body">
+                            <uib-tabset>
+                                <uib-tab heading="Dokumentasi Pembelajaran">
+                                    <br>
+                                    <!--                                    {{modulPDF}}-->
+                                    <div ng-if="modulPDF == true" style="position: relative; overflow: auto; width: auto;">
+                                        <ng-pdf template-url="app/siswa/view/pdfviewer.html" canvasid="pdf" scale="page-fit" page=1></ng-pdf>
+                                        <!--{{pdfUrl}}-->
+                                        <!--<embed ng-src="{{pdfUrl}}" style="width:200px;height:200px;"></embed>-->
+                                    </div>
+                                    <div ng-if="modulPDF != true">
+                                        <div class='col-md-12'>
+                                            <i class="fa fa-times-circle-o"></i> &nbsp;  Mohon maaf. Modul pembelajaran ini tidak tersedia .
+                                        </div>
+                                    </div>
+
+                                </uib-tab>
+                                <uib-tab heading="Video Pembelajaran">                                    
+                                    <br>                                    
+
+                                    <div ng-if="modulVideo == true">
+                                        <center>
+                                            <youtube-video video-url="output.video"></youtube-video>
+                                        </center>
+                                    </div>
+
+                                    <div ng-if="modulVideo != true">
+                                        <div class='col-md-12'>
+                                            <i class="fa fa-times-circle-o"></i> &nbsp; Mohon maaf. Video tutorial untuk modul ini tidak tersedia 
+                                        </div>
+                                    </div>
+                                </uib-tab>
+                                <uib-tab heading="Latihan Soal">
+                                    <br>
+                                    <div class="col-md-12">
+                                        <div ng-if="output.questions != ''">
+                                            <div ng-if="output.questions != 'NONE'">
+                                                <i class="fa fa-check-square-o"></i> &nbsp; Anda sudah pernah mengerjakan latihan soal ini sebelumnya.
+                                            </div>
+                                        </div> 
+                                        <div ng-if="output.questions === 'NONE'">
+                                            <div ng-if="soalData === 'NONE'"> <i class="fa fa-times-circle-o"></i> &nbsp; Mohon maaf, soal belum tersedia untuk modul ini</div>
+                                            <div ng-if="soalData != 'NONE'">
+                                                <br>
+                                                <div >
+                                                    <div class="col-md-12" ng-repeat="item in soalData"> 
+                                                        <p><b>Pertanyaan ke - {{item.no}}</b>
+                                                        <div ng-bind-html="item.soal"></div>                                           
+                                                        <input type="radio" name="pilihan_{{item.id_soal_modul}}" ng-model="item.jawab" value="A"> A. {{item.pa}}<br>
+                                                        <input type="radio" name="pilihan_{{item.id_soal_modul}}" ng-model="item.jawab" value="B"> B. {{item.pb}}<br>
+                                                        <input type="radio" name="pilihan_{{item.id_soal_modul}}" ng-model="item.jawab" value="C"> C. {{item.pc}}<br>
+                                                        <input type="radio" name="pilihan_{{item.id_soal_modul}}" ng-model="item.jawab" value="D"> D. {{item.pd}}<br>
+                                                        </p>
+                                                        <br>
+                                                    </div>
+                                                    <div class="col-md-12">
+
+                                                        <button class="btn btn-block btn-primary btn-lg" ng-click="SubmitConfirm()">
+                                                            Selesai
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+
+                                </uib-tab>
+                            </uib-tabset>
+                        </div>  
+                    </div>   
+                </div>
+            </div>
+    </div>
+    <br><br><br><br><br><br>
+    </section>
+</div>
+<siswa-Footerdirective>    
+</siswa-Footerdirective>
+</div><!-- /.row -->
+
+
+
+
+
+

@@ -1,0 +1,122 @@
+<title>{{pagetitle}}</title>
+<div class="wrapper" style="margin-top:15px;">
+    <!-- Left side column. contains the logo and sidebar -->
+    <siswa-Topnavdirective></siswa-Topnavdirective>
+    <siswa-Sidebardirective></siswa-Sidebardirective>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        
+        <div class="navHeader">
+            <span class="">
+                <strong><i class="fa fa-play"></i>&nbsp; {{output.nama_matpel}}</strong>
+            </span >
+            <ol class="breadcrumb pull-right" style="text-align: left;margin-top:-10px; margin-bottom: 10px; margin-right:5px;background-color:transparent;">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>            
+                <li>Paket Pembelajaran</li>
+                <li>Mata Pelajaran</li>
+            </ol>
+        </div>
+        
+
+        <section class="content">
+            <!-- title row -->
+
+            <!-- info row -->
+            <div class="row ">                                  
+                <div class="col-md-4">
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon"><i class="fa fa-book"></i></span>
+                        <div class="info-box-content">                                    
+                            <span class="info-box-number" style="margin-top:20px;text-align:center; word-wrap:break-word;font-size: 100%;">{{output.nama_matpel}}</span>
+                        </div><!-- /.info-box-content -->
+                    </div>
+                </div>
+                <div class='col-md-8' >
+                    <div class="box box-solid">                                
+                        <div class='row'>
+                            <div class='col-md-7'>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="#"><i class="fa fa-circle-o text-green"></i> <label>Keterangan : </label> <small> {{output.ket_matpel}} </small></a></li>
+                                    <li><a href="#"><i class="fa fa-circle-o text-blue"></i> <label>Jumlah Modul : </label> <small>  {{output.total_modul}} Modul </small> </a></li>                                        
+                                </ul>
+                            </div>
+                            <div class='col-md-5' style='margin-left: -25px;'>
+                                <ul class="nav nav-pills nav-stacked">                                            
+                                    <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <label>Modul Selesai </label>:  <small> {{output.total_modul_selesai}} Modul </small></a></li>                                        
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">                        
+                    <div class="box box-widget">    
+                        <div class="box-header">
+                            <i class="fa fa-arrow-circle-o-right"></i> Modul {{output.nama_matpel}}
+                        </div>
+                    </div>
+                    <!--<div class="box-body">-->                            
+                    <!--                            <ul class="todo-list ui-sortable" ng-repeat="items in output.data_nilai_modul">
+                                                    <li class="" style="margin-bottom: 1px;">
+                                                         drag handle 
+                                                        <span>
+                                                            <i class="fa fa-dot-circle-o"></i>                                     
+                                                        </span>
+                                                         checkbox 
+                                                         todo text 
+                                                        <span class="text">{{items.judul_modul}}</span>
+                                                         Emphasis label 
+                                                                                            <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
+                                                         General tools such as edit or delete
+                                                        <div class="pull-right">
+                                                            <a href="#/siswa/modul/{{items.id_modul}}" title="Lihat Modul"><i class="fa fa-file-text-o"></i></a>                                        
+                                                            &nbsp;
+                                                            <a href="#/siswa/modul/soal/{{items.id_modul}}" title="Kerjakan Soal Latihan"><i class="fa fa-pencil-square-o"></i></a>                                                                                
+                                                            &nbsp;
+                                                            <a href="#/siswa/modul/{{items.id_modul}}" title="Download Modul"><i class="fa fa-download"></i></a>                                        
+                                                        </div>                                    
+                                                    </li>
+                    
+                                                </ul>-->
+
+                    <div class="row">
+                        <div class="col-md-6"  ng-repeat="items in output.data_nilai_modul">
+                            <div class="info-box bg-teal">
+                                <span class="info-box-icon">{{items.nilai_modul}}</span>
+                                <div class="info-box-content">
+
+
+                                    <span class="info-box-text" style="margin-top:10px;">{{items.judul_modul}}</span>
+
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 100%"></div>
+                                    </div>
+
+
+                                    <span class="pull-left">
+                                        <span ng-if="items.nilai_modul != 0">Selesai pada {{items.tgl_selesai}}</span>
+                                        <span ng-if="items.nilai_modul == 0">Belum selesai </span>
+                                    </span>
+                                    <span class="pull-right">
+                                        <a href="#/siswa/modul/{{items.id_modul}}" title="Detail Modul" style="color:white;"> <i class="fa fa-arrow-circle-right fa-2x text-right"></i></a> 
+
+                                    </span>
+
+
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div >
+            <!--</div> /.col -->
+
+            <!--    </div> /.row 
+                </div>-->
+
+        </section>
+
+        <br><br>
+    </div> 
+    <siswa-Footerdirective>    
+    </siswa-Footerdirective>

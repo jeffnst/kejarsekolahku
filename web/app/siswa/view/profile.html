@@ -1,0 +1,169 @@
+<title>{{pagetitle}}</title>
+<div class="wrapper" style="margin-top:15px;">
+    <!-- Left side column. contains the logo and sidebar -->
+
+    <siswa-Topnavdirective></siswa-Topnavdirective>
+    <siswa-Sidebardirective></siswa-Sidebardirective>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Dashboard
+                <small>Profil Siswa</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>            
+                <li class="active">Profil Siswa</li>
+            </ol>
+        </section>
+        <br>
+        <!-- Main content -->
+        <section class="content">
+
+            <div class="row">
+                <div class="col-md-3">
+
+                    <!-- Profile Image -->
+                    <div class="box box-primary">
+                        <div class="box-body box-profile">
+                            <img class="profile-user-img img-responsive img-circle" src="app/siswa/view/user.jpg" alt="User profile picture">
+                            <h3 class="profile-username text-center">{{output.profil.nama_siswa}}</h3>                  
+                            <p class="text-muted text-center">{{output.profil.id_siswa}}</p>
+                            <ul class="list-group list-group-unbordered">
+                                <li class="list-group-item">
+                                    <i class="fa fa-university"></i>&nbsp; {{output.sekolah.nama_sekolah}}
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-envelope"></i>&nbsp; {{output.profil.email_siswa}}
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-phone-square"></i>&nbsp; {{output.profil.kontak_siswa}}
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-home"></i>&nbsp; {{output.profil.alamat_siswa}}
+                                </li>
+                            </ul>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
+                </div><!-- /.col -->     
+                <div class="col-md-9">
+                    <div class="box box-success">
+                        <div class="box-body">                            
+                            <div class="btn-group">
+                                <label class="btn btn-default btn-md btn-flat"  ng-click="leftBtn()" ng-model="radioModel" uib-btn-radio="'Left'" selected>Profil</label>
+                                <label class="btn btn-default btn-md btn-flat"  ng-click="midBtn()" ng-model="radioModel" uib-btn-radio="'Mid'">Pendidikan</label>
+                                <label class="btn btn-default btn-md btn-flat"  ng-click="rightBtn()" ng-model="radioModel" uib-btn-radio="'Right'">Akun</label>
+                            </div>
+                            <hr>
+                            <div ng-show="leftShow">
+
+                                <div class="form-group">
+                                    <label>Nama</label>                                            
+                                    <input type="text" class="form-control" value='{{output.profil.nama_siswa}}' ng-model="output.profil.nama_siswa" >
+                                </div>                                                                       
+                                <div class="form-group">
+                                    <label>Jenis Kelamin</label>
+                                    <div ng-repeat="kelamin in jnsklm">                                                                                 
+                                        <input type="radio" name="kelamin" ng-value="kelamin" ng-model="output.profil.kelamin_siswa">
+                                        {{kelamin}}                                            
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tempat & Tanggal Lahir</label>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-8">
+
+                                                <input type="text" class="form-control" name="tmp_lhr" value="{{output.profil.tmp_lhr_siswa}}" ng-model="output.profil.tmp_lhr_siswa">
+                                            </div>
+                                            <div class="col-md-4">                                                       
+                                                <input class="form-control" type="date" name="tgl_lhr" ng-model="output.profil.tgl_lhr_siswa" value="{{output.profil.tgl_lhr_siswa| date: 'yyyy-MM-dd'}}">                                                        
+                                                <date-picker ng-model="datepicker2" placeholder="Select Date" callback="dateChange()" format="MMM, yyyy" autohide="true" month-only="true"></date-picker>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="form-group">
+                                    <label>Agama</label>                                      
+                                    <select  class='form-control' ng-model="output.profil.agama_siswa" ng-options="item for item in options_agama">                                                
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Alamat Lengkap</label>                                            
+                                    <textarea class="form-control" style="resize:none;" ng-model="output.profil.alamat_siswa">{{output.profil.alamat_siswa}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Kontak / Telepon</label>
+                                    <input type="text" class="form-control" value='{{output.profil.kontak_siswa}}' ng-model="output.profil.kontak_siswa">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nama Ortu</label>
+                                    <input type="text" class="form-control" value='{{output.profil.ortu_siswa}}' ng-model="output.profil.ortu_siswa">
+                                </div>                                
+                                <hr>
+                                <button class="btn btn-success btn-flat btn-md pull-right" ng-click="saxxveProfile()"><i class="fa fa-save"></i>&nbsp; Simpan Profil</button>
+                            </div>
+                            
+                            <div ng-show="midShow">
+                                <div class="form-group">
+                                    <label>Tingkatan Sekolah</label>
+                                    <div class="form-group">                                            
+                                        <select  class='form-control' ng-model="output.profil.pdkn_siswa" ng-options="item for item in options_tingkatan_sekolah">                                                
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nama Sekolah</label>
+                                    <input type="text" class="form-control" value="{{output.profil.nama_sekolah_siswa}}" ng-model="output.profil.nama_sekolah_siswa">
+                                </div>
+                                <div class="form-group">
+                                    <label>Tahun Lulus</label>
+                                    <input type="text" class="form-control" value="{{output.profil.thn_lulus_siswa}}" ng-model="output.profil.thn_lulus_siswa">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="gambar1">Bukti Ijazah Pendidikan Terakhir</label>
+                                                <input type="text" class="form-control" value="{{output.profil.no_ijasah_siswa}}" ng-model="output.profil.no_ijasah_siswa">
+                                                <br>
+                                                <img src="http://localhost/pkbmksi-web/api/assets/images/siswa-ijazah/01.jpg" id="gambar_nodin" style="width: 250px; height:300px;" alt="Preview Gambar" class="img-thumbnail img-responsive">                                                                                                       
+                                                <input type="file" name="img_ijazah" id="preview_gambar" ng-model="output.profil.foto_ijazah_siswa" class="btn btn-default btn-sm" file-model="ijazahImg" >                                                 
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="gambar2">Bukti SKHUN Pendidikan Terakhir</label>
+                                                <input type="text" class="form-control" value="{{output.profil.no_skhun_siswa}}" ng-model="output.profil.no_skhun_siswa">
+                                                <br>
+                                                <img src="http://localhost/pkbmksi-web/api/assets/images/siswa-skhun/01.jpg" id="gambar_nodin2" style="width: 250px; height:300px;" alt="Preview Gambar" class="img-thumbnail img-responsive">                                                                                                        
+                                                <input type="file" class="btn btn-default btn-sm" file-model="skhunImg" ng-model="output.profil.foto_skhun_siswa" >                                                                                                                                                         
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>                                    
+                                <button class="btn btn-success btn-flat btn-md pull-right" ng-click="savePendidikan()"><i class="fa fa-save"></i>&nbsp; Simpan Pendidikan</button>                                    
+                            </div>
+                            <div ng-show="rightShow">
+
+                                <div class="form-group">
+                                    <label>Email Siswa</label>
+                                    <input type="text" class="form-control" value="{{output.profil.email_siswa}}" ng-model="output.profil.email_siswa">
+                                </div>
+                                <div class="form-group">
+                                    <label><a href="#/siswa/forgot_password">Ganti Password?</a></label>                                        
+                                </div>  
+                            </div>
+                        </div>                  
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <br><br>
+    </div> 
+    <siswa-Footerdirective>    
+    </siswa-Footerdirective>

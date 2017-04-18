@@ -1,0 +1,56 @@
+<div>
+    <ion-view view-title="Latihan Soal" style="background-color:#d7dfef" cache-view="false">
+        <ion-nav-buttons side="right">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>
+        </ion-nav-buttons>
+
+        <div ng-if="score_data == 'NONE' ">
+            <ion-content>
+                <div ng-if="output.soal != ''">
+                    <div class="list card" ng-repeat="item in output.soal">
+                        <div class="row responsive-sm">
+                            <div class="col">
+                                <div class="item item-text-wrap">
+                                    <p><b>Pertanyaan ke - {{item.no}}</b></p>
+                                    <div ng-bind-html="item.soal"></div>
+                                    <!--                <div class="item" ng-bind-html="item.pa"></div>-->
+                                    <ion-list>
+                                        <ion-radio name="pilihan_{{item.id_soal_modul}}" ng-model="item.jawab" value="A"> A. {{item.pa}}</ion-radio>
+                                        <ion-radio name="pilihan_{{item.id_soal_modul}}" ng-model="item.jawab" value="B">B. {{item.pb}}</ion-radio>
+                                        <ion-radio name="pilihan_{{item.id_soal_modul}}" ng-model="item.jawab" value="C">C. {{item.pc}}</ion-radio>
+                                        <ion-radio name="pilihan_{{item.id_soal_modul}}" ng-model="item.jawab" value="D">D. {{item.pd}}</ion-radio>
+                                    </ion-list>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row responsive-sm">
+                        <div class="col">
+                            <button class="button button-positive button-block" ng-click="submitQuestions()">
+                                Selesai
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="output.soal == ''">
+                    <div class="card">
+                        <div class="item item-text-wrap">
+                            <i class="fa fa-times-circle-o"></i> &nbsp; Mohon maaf, soal belum tersedia untuk modul ini
+                        </div>
+                    </div>
+                </div>
+            </ion-content>
+        </div>
+        <div ng-if="score_data != 'NONE'">
+            <ion-content>
+                <div class="card">
+                    <div class="item item-text-wrap">
+                        <i class="icon ion-close-circled"></i> Anda sudah pernah mengerjakan latihan soal ini sebelumnya.
+                    </div>
+                </div>
+
+            </ion-content>
+        </div>
+    </ion-view>
+</div>

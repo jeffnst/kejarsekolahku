@@ -1,0 +1,155 @@
+<title>{{pagetitle}}</title>
+<div class="wrapper" style="margin-top:15px;">
+    <!-- Left side column. contains the logo and sidebar -->
+    <siswa-Topnavdirective></siswa-Topnavdirective>
+    <siswa-Sidebardirective></siswa-Sidebardirective>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Mata Pelajaran
+                <small>{{output.detail_matpel[0].nama}}</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>            
+                <li >Paket Pembelajaran</li>
+                <li>Mata Pelajaran</li>
+                <li class="active">{{output.detail_matpel[0].nama}}</li>
+            </ol>
+        </section>
+        <br>
+        <!-- Main content -->
+
+        <section class="content">
+<!--            <pre>{{radioModel|| 'null'}}</pre>-->
+<!--            <div class="btn-group">
+                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Left'">Left</label>
+                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Middle'">Middle</label>
+                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Right'">Right</label>
+            </div>-->
+            <!-- title row -->
+
+            <!-- info row -->
+                        <input type="file" file-model="myFile"/>
+                        <button class="btn btn-success btn-flat btn-md pull-right" ng-click="uploadData()"><i class="fa fa-upload"></i>&nbsp; Upload</button>
+            <!--            <uib-tabset>-->
+            <!--                <uib-tab heading="Profil" >
+                                <br>                                    
+            
+                                <div class="form-group">
+                                    <label>Nama</label>                                            
+                                    <input type="text" class="form-control" value='{{output.profil.nama_siswa}}' ng-model="output.profil.nama_siswa" >
+                                </div>                                       
+                                 checkbox 
+                                <div class="form-group">
+                                    <label>Jenis Kelamin</label>
+                                    <div ng-repeat="kelamin in jnsklm">                                                                                 
+                                        <input type="radio" name="kelamin" ng-value="kelamin" ng-model="output.profil.kelamin_siswa">
+                                        {{kelamin}}                                            
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tempat & Tanggal Lahir</label>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-8">
+            
+                                                <input type="text" class="form-control" name="tmp_lhr" value="{{output.profil.tmp_lhr_siswa}}" ng-model="output.profil.tmp_lhr_siswa">
+                                            </div>
+                                            <div class="col-md-4">                                                       
+                                                <input class="form-control" type="date" name="tgl_lhr" ng-model="output.profil.tgl_lhr_siswa" value="{{output.profil.tgl_lhr_siswa| date: 'yyyy-MM-dd'}}">                                                        
+                                                                                                    <date-picker ng-model="datepicker2" placeholder="Select Date" callback="dateChange()" format="MMM, yyyy" autohide="true" month-only="true"></date-picker>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+            
+            
+                                <div class="form-group">
+                                    <label>Agama</label>                                      
+                                    <select  class='form-control' ng-model="output.profil.agama_siswa" ng-options="item for item in options_agama">                                                
+                                    </select>
+                                </div>
+            
+            
+                                <div class="form-group">
+                                    <label>Alamat Lengkap</label>                                            
+                                    <textarea class="form-control" style="resize:none;" ng-model="output.profil.alamat_siswa">{{output.profil.alamat_siswa}}</textarea>
+                                </div>
+            
+                                <div class="form-group">
+                                    <label>Kontak / Telepon</label>
+                                    <input type="text" class="form-control" value='{{output.profil.kontak_siswa}}' ng-model="output.profil.kontak_siswa">
+                                </div>
+            
+                                <div class="form-group">
+                                    <label>Nama Ortu</label>
+                                    <input type="text" class="form-control" value='{{output.profil.ortu_siswa}}' ng-model="output.profil.ortu_siswa">
+                                </div>
+                                                                    <input type="file" file-model="myFile"/>
+                                                                    <button ng-click="uploadData()">upload me</button>
+            
+                                 select    
+                                <hr>
+                                <button class="btn btn-success btn-flat btn-md pull-right" ng-click="saveProfile()"><i class="fa fa-save"></i>&nbsp; Simpan Profil</button>
+                            </uib-tab>-->
+            <!--                <uib-tab heading="Pendidikan Akhir">                                    -->
+<!--            <br>                                    
+            <div class="form-group">
+                <label>Tingkatan Sekolah</label>
+                <div class="form-group">                                            
+                    <select  class='form-control' ng-model="output.profil.pdkn_siswa" ng-options="item for item in options_tingkatan_sekolah">                                                
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Nama Sekolah</label>
+                <input type="text" class="form-control" value="{{output.profil.nama_sekolah_siswa}}" ng-model="output.profil.nama_sekolah_siswa">
+            </div>
+            <div class="form-group">
+                <label>Tahun Lulus</label>
+                <input type="text" class="form-control" value="{{output.profil.thn_lulus_siswa}}" ng-model="output.profil.thn_lulus_siswa">
+            </div>
+            <div class="form-group">
+                <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="gambar1">Bukti Ijazah Pendidikan Terakhir</label>
+                                                        <input type="text" class="form-control" value="{{output.profil.no_ijasah_siswa}}" ng-model="output.profil.no_ijasah_siswa">
+                                                        <br>
+                                                        <img src="http://localhost/pkbmksi-web/api/assets/images/siswa-ijazah/01.jpg" id="gambar_nodin" style="width: 250px; height:300px;" alt="Preview Gambar" class="img-thumbnail img-responsive">                                                                                                       
+                                                        <input type="file" name="img_ijazah" id="preview_gambar" class="btn btn-default btn-sm" >                                                 
+                                                    </div>
+                                                </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="gambar2">Bukti SKHUN Pendidikan Terakhir</label>
+                            <input type="text" class="form-control" value="{{output.profil.no_skhun_siswa}}" ng-model="output.profil.no_skhun_siswa">
+                            <br>
+                            <img src="http://localhost/pkbmksi-web/api/assets/images/siswa-skhun/01.jpg" id="gambar_nodin2" style="width: 250px; height:300px;" alt="Preview Gambar" class="img-thumbnail img-responsive">                                                    
+                            <input type="file" class="btn btn-default btn-sm" file-model="myFile" >                                                                                                     
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <hr>
+<!--            <button class="btn btn-success btn-flat btn-md pull-right" ng-click="uploadData()"><i class="fa fa-save"></i>&nbsp; Simpan Pendidkan</button>-->
+            <!--</uib-tab>-->   
+            <!--                <uib-tab heading="Akun">
+                                <br>                                    
+                                <div class="form-group">
+                                    <label>Email Siswa</label>
+                                    <input type="text" class="form-control" value="{{output.profil.email_siswa}}" ng-model="output.profil.email_siswa">
+                                </div>
+                                <div class="form-group">
+                                    <label><a href="#/siswa/forgot_password">Ganti Password?</a></label>                                        
+                                </div>                                    
+                            </uib-tab>-->
+            <!--            </uib-tabset>-->
+
+        </section>
+
+        <br><br>
+    </div>  

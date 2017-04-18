@@ -1,0 +1,99 @@
+<title>{{pagetitle}}</title>
+<div class="wrapper" style="margin-top:15px;">
+    <!-- Left side column. contains the logo and sidebar -->
+    <siswa-Topnavdirective></siswa-Topnavdirective>
+    <siswa-Sidebardirective></siswa-Sidebardirective>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+
+        <div class="navHeader">
+            <span class="">
+                <strong><i class="fa fa-play"></i>&nbsp; Paket Pembelajaran</strong>
+            </span >
+            <ol class="breadcrumb pull-right" style="text-align: left;margin-top:-10px; margin-bottom: 10px; margin-right:5px;background-color:transparent;">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>            
+                <li class="active">Paket Pembelajaran</li>
+            </ol>
+        </div>
+
+
+        <section class="content">
+
+            <div class="row ">                    
+
+                <div class="col-md-12">                    
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="info-box bg-aqua">
+                                <span class="info-box-icon"><i class="fa fa-cube"></i></span>
+                                <div class="info-box-content">                                    
+                                    <span class="info-box-number" style="margin-top:25px;text-align:center;">{{output.nama_paket}}</span>
+
+                                </div><!-- /.info-box-content -->
+                            </div>
+                        </div>
+                        <div class='col-md-9'>
+                            <div class="box box-solid">                                
+                                <div class='row'>
+                                    <div class='col-md-6'>
+                                        <ul class="nav nav-pills nav-stacked">
+                                            <li><a href="#"><i class="fa fa-circle-o text-green"></i> <label>Keterangan : </label> {{output.keterangan_paket}} </a></li>
+                                            <li><a href="#"><i class="fa fa-circle-o text-blue"></i> <label>Jumlah Mata Pelajaran </label>: {{output.total_matpel}} Mata Pelajaran</a></li>                                        
+                                        </ul>
+                                    </div>
+                                    <div class='col-md-6' style='margin-left: -30px;'>
+                                        <ul class="nav nav-pills nav-stacked">
+                                            <li><a href="#"><i class="fa fa-circle-o text-red"></i> <label>Jumlah Modul : </label> {{output.total_modul}} Modul </a></li>
+                                            <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <label>Jumlah Modul Selesai </label>: {{output.total_modul_selesai}} Modul</a></li>                                        
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box box-widget">    
+                        <div class="box-header">
+                            <i class="fa fa-arrow-circle-o-right"></i> Paket Pembelajaran {{output.nama_paket}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4" ng-repeat="item in output.data_nilai">
+
+                            <!-- Widget: user widget style 1 -->
+                            <div class="box box-widget widget-user-2">
+                                <!-- Add the bg color to the header using any of the bg-* classes -->
+                                <div class="widget-user-header bg-green"> 
+                                    <div class="text-center">
+                                        <div class="icon-wrapper"><i class="fa fa-book custom-icon"><span class="fix-editor">&nbsp;</span></i></div>
+                                    </div>
+                                    <center>
+                                        <h5 ><strong>{{item.nama_matpel}}</strong></h5>
+                                        <h5 >{{item.keterangan_matpel}}</h5>
+                                    </center>
+                                </div>
+                                <div class="box-body no-padding">
+                                    <ul class="nav nav-stacked">
+                                        <li><a >Jumlah Modul <span class="pull-right badge bg-blue">{{item.total_modul_matpel}}</span></a></li>
+                                        <li><a >Modul Selesai <span class="pull-right badge bg-red-active">{{item.total_modul_selesai}}</span></a></li>                                        
+                                    </ul>
+                                    <div class='text-center'>
+                                        <a href="#/siswa/matpel/{{item.id_matpel}}" class='btn bg-yellow  margin '>Pelajari Selengkapnya &nbsp; <i class='fa fa-arrow-right'></i></a>                                                            
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>    
+                    </div>
+                </div>
+            </div><!-- /.row -->
+
+
+        </section>
+
+        <br><br>
+    </div> 
+    <siswa-Footerdirective>    
+    </siswa-Footerdirective>

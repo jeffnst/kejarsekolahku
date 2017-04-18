@@ -1,0 +1,118 @@
+<title>{{pagetitle}}</title>
+<div class="wrapper" style="margin-top:15px;">
+<!-- Left side column. contains the logo and sidebar -->
+
+<siswa-Topnavdirective></siswa-Topnavdirective>
+<siswa-Sidebardirective></siswa-Sidebardirective>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="navHeader">
+            <span class="">
+                <strong><i class="fa fa-play"></i>&nbsp; Dashboard</strong>
+            </span >
+            <ol class="breadcrumb pull-right" style="text-align: left;margin-top:-10px; margin-bottom: 10px; margin-right:5px;background-color:transparent;">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>            
+                
+            </ol>
+        </div>
+<br>
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="row">
+            <div class="col-md-3">
+
+                <!-- Profile Image -->
+                <div class="box box-primary">
+                    <div class="box-body box-profile">
+                        <img class="profile-user-img img-responsive img-circle" src="app/siswa/view/user.jpg" alt="User profile picture">
+                        <h3 class="profile-username text-center">{{output.profil.nama_siswa}}</h3>                  
+                        <p class="text-muted text-center">{{output.profil.id_siswa}}</p>
+                        <ul class="list-group list-group-unbordered">
+                            <li class="list-group-item">
+                                <i class="fa fa-university"></i>&nbsp; {{output.sekolah.nama_sekolah}}
+                            </li>
+                            <li class="list-group-item">
+                                <i class="fa fa-envelope"></i>&nbsp; {{output.profil.email_siswa}}
+                            </li>
+                            <li class="list-group-item">
+                                <i class="fa fa-phone-square"></i>&nbsp; {{output.profil.kontak_siswa}}
+                            </li>
+                            <li class="list-group-item">
+                                <i class="fa fa-home"></i>&nbsp; {{output.profil.alamat_siswa}}
+                            </li>
+                        </ul>
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+
+                <!-- About Me Box -->
+                <div class="box box-success">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><center>Detail Sekolah</center></h3>
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        <strong><i class="fa fa-book margin-r-5"></i>  Nama Sekolah </strong>
+                        <p class="text-muted">{{output.sekolah.nama_sekolah}}</p>
+                        <hr>
+                        <strong><i class="fa fa-user margin-r-5"></i> Nama Penjab</strong>
+                        <p class="text-muted">{{output.sekolah.nama_penjab}}</p>
+                        <hr>
+                        <strong><i class="fa fa-home margin-r-5"></i> Alamat</strong>
+                        <p class="text-muted">{{output.sekolah.alamat_sekolah}}</p>                                                
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div><!-- /.col -->
+            <div class="col-md-9">
+                <div class="row">
+
+                    <div class="col-lg-4 col-xs-12">
+                        <!-- small box -->
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h3>{{output.paket}}</h3>
+                                <p>Paket Pembelajaran</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-stats-bars"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div><!-- ./col -->
+                    <div class="col-lg-4 col-xs-12">
+                        <!-- small box -->
+                        <div class="small-box bg-yellow">
+                            <div class="inner">
+                                <h3>{{output.jumlah_matpel}}</h3>
+                                <p>Jumlah Mata Pelajaran</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person-add"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div><!-- ./col -->
+                    <div class="col-lg-4 col-xs-12">
+                        <!-- small box -->
+                        <div class="small-box bg-red">
+                            <div class="inner">
+                                <h3>{{output.jumlah_modul}}</h3>
+                                <p>Jumlah Modul</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-pie-graph"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div><!-- ./col -->
+                </div>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+
+    </section><!-- /.content -->
+
+    <br><br>
+    </div>  
+<siswa-Footerdirective>    
+</siswa-Footerdirective>

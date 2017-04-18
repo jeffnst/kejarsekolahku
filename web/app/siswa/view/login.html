@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+
+    <div class="login-box">
+        <div class="login-logo">
+            <b>Kejar </b>Sekolahku
+        </div><!-- /.login-logo -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <p >Selamat datang, silahkan masuk </p>
+            </div>
+            <div class="box-body">
+                <form >
+                    <div class="form-group has-feedback">
+                        <input type="text" class="form-control" placeholder="ID Siswa" required ng-model="inputdata.id">
+                        <span class="glyphicon glyphicon-tags form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="password" class="form-control" placeholder="Password" required ng-model="inputdata.password">
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>                      
+                    <button ng-click="doLogin(inputdata)" class="btn btn-primary btn-block btn-flat">Masuk &nbsp;<i class="fa fa-sign-in"></i></button>            
+                </form>
+            </div>
+        </div>
+
+
+
+
+    </div><!-- /.login-box-body -->    
+
+    <!-- jQuery 2.1.4 -->
+
+

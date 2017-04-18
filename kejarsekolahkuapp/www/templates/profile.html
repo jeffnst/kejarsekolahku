@@ -1,0 +1,48 @@
+<ion-view view-title="Profil Siswa" cache-view ="false">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>
+    </ion-nav-buttons>
+    <ion-content >                  
+
+        <div class="hero " style="background-image: url('img/bg.jpg');">
+            <div class="content">
+                <img src="{{output.image_profile_dir}}" class="avatar">
+                <h3>{{output.profil.nama_siswa}}</h3>
+                <h4>{{output.profil.id_siswa}}</h4>
+            </div>
+        </div>
+
+        <div class="list list-inset">
+            <label class="item item-input  ">
+                <span class="input-label">Nama</span>
+                <input type="text" value="{{output.profil.nama_siswa}}" class="text-right" ng-model="output.profil.nama_siswa" >
+            </label>
+            <label class="item item-input item-select">
+                <span class="input-label">Jenis Kelamin</span>                
+                <select  ng-model="output.profil.kelamin_siswa" ng-options="item for item in options_gender">                                                
+                </select>                
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Tempat lahir</span>
+                <input type="text" value="{{output.profil.tmp_lhr_siswa}}" ng-model="output.profil.tmp_lhr_siswa" class="text-right" >
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Tgl lahir</span>
+                <input type="date" ng-model="output.profil.tgl_lhr_siswa" value="{{output.profil.tgl_lhr_siswa| date: 'yyyy-MM-dd'}}" class="text-right" >
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Alamat</span>
+                <input type="text" value="{{output.profil.alamat_siswa}}" ng-model="output.profil.alamat_siswa" class="text-right" >
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Kontak</span>
+                <input type="text" value="{{output.profil.kontak_siswa}}" ng-model="output.profil.kontak_siswa" class="text-right" >
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Nama Orang Tua</span>
+                <input type="text" value="{{output.profil.ortu_siswa}}" ng-model="output.profil.ortu_siswa" class="text-right" >
+            </label>
+        </div>
+
+    </ion-content>
+</ion-view>

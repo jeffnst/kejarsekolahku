@@ -1,0 +1,21 @@
+<ion-view view-title="Selamat Datang">
+    <ion-content style="background-image: url('img/bg.jpg');">
+        <center><img src="img/logo2.png" align="middle" style="width:90%;margin-top:100px;"> </center>
+        <div class="row responsive-sm">
+            <div class="col">
+                <form ng-submit="doLogin()">
+                    <label class="item item-input">
+                        <input type="text" ng-model="loginData.idsiswa" placeholder="Id Siswa">
+                    </label>
+                    <label class="item item-input">
+                        <input type="password" ng-model="loginData.password" placeholder="Password">
+                    </label>
+                    <button class="button icon-right ion-chevron-right button-calm button-block" type="submit">Masuk</button>
+                    <a href="#" style="text-align:left">Lupa Password ?</a>
+
+                </form>
+
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

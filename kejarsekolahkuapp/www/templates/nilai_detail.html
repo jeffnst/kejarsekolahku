@@ -1,0 +1,40 @@
+<!--style="background-image: url('img/bg.jpg');"-->
+<ion-view view-title="Modul Mata Pelajaran"  style="background-color:#d7dfef" cache-view ="false">    
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>
+    </ion-nav-buttons>
+    <ion-content >    
+
+        <div class="list " style="margin-top:-2px;">
+            <a style="color:white" class="item item-icon-left item-divider positive-bg" >
+                <i style="color:white" class="icon ion-android-bookmark"></i>                
+                <small style="color:white">{{output.nama_matpel}}</small>               
+                <p style="color:white">Total Modul : {{output.total_modul}} | Total Nilai Masuk : {{output.total_modul_selesai}}</p>
+            </a>
+             <a class="item item-icon-left" >                
+                <i class="icon ion-android-send"></i>                
+                {{output.ket_matpel}}
+            </a>
+        </div>       
+
+
+        <div class="list card" ng-repeat="item in output.data_nilai_modul">                
+
+            <a class="item item-text-wrap " href="#" ui-sref="home.modul({modulId: item.id_modul})">                                
+                <p><strong>{{item.judul_modul}}</strong></p>
+                <p ng-if="item.tgl_selesai != '' ">Dikerjakan pada : {{item.tgl_selesai}}</p>
+<!---->
+                <h2><span class="item-note badge badge-balanced" ng-if="item.nilai_modul != '0'" style="font-size: 20px;line-height: 30px; right:15px;">{{item.nilai_modul}}</span></h2>
+
+            </a>
+<!--            <a class="item item-icon-left item-text-wrap" href="#" ui-sref="home.modul({modulId: item.id_modul})">
+                <i class="icon ion-android-attach"></i>
+                {{item.judul_modul}} 
+                <span class="item-note " ng-if="item.nilai_modul != '0'">{{item.nilai_modul}}</span>
+            </a>-->
+
+
+        </div>
+
+    </ion-content>
+</ion-view>

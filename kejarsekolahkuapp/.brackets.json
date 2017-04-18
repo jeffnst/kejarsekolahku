@@ -1,0 +1,9 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/xampp/htdocs/testingionic/platforms/android/assets/www/plugins/cordova-plugin-file/www/FileUploadOptions.js",
+        "C:/xampp/htdocs/testingionic/www/js/app.js",
+        "C:/xampp/htdocs/testingionic/www/js/controllers.js",
+        "C:/xampp/htdocs/kejarsekolahkuapp/www/js/app.js",
+        "C:/xampp/htdocs/kejarsekolahkuapp/platforms/android/assets/www/plugins/cordova-plugin-file/www/ProgressEvent.js"
+    ]
+}

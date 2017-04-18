@@ -1,0 +1,29 @@
+<nav ng-class="getNavStyle(scroll)">
+    <link href="../css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../lib/ionic/css/ionic.css" rel="stylesheet" type="text/css" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+
+    <div class="col">
+        <!-- tyle="position: relative; overflow: auto; width: auto;" -->
+        <div class="button-bar" style="height: 50px;">
+            <button ng-click="goPrevious()" class="button-small button button-stable"><i class="ion-arrow-left-b"></i></button>
+            <button ng-click="goNext()" class="button-small button button-stable"><i class="ion-arrow-right-b"></i></button>
+            <button ng-click="zoomIn()" class="button-small button button-stable"><i class="ion-android-add-circle"></i></button>
+            <button ng-click="fit()" class="button-small button button-stable"><i class="ion-eye"></i></button>
+            <button ng-click="zoomOut()" class="button-small button button-stable"><i class="ion-android-remove-circle"></i></button>
+            <input type="text" min=1 ng-model="pageNum" placeholder="Halaman ke ... " style="height: 50px;">
+            <button class="button-small button button-stable">{{pageCount}}</button>
+
+        </div>
+
+
+    </div>
+
+</nav>
+<hr>
+<!-- ion-scroll direction="y"> -->
+<div class="col" style="height:auto; overflow:auto;">
+    <canvas id="pdf" class="rotate0"></canvas>
+
+</div>
+<!-- </ion-scroll> -->

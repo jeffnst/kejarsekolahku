@@ -1,0 +1,169 @@
+﻿<html>
+	
+<head>
+	<title>Login</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Personal Edition 4.9.2.132">
+	<meta name="keywords" content="">
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "API Dokumentasi Kejar Sekolahku.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Login");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	</head>
+
+<body>
+
+<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Login</h1>
+				
+				<div id="topic_breadcrumb">
+					<a href="Siswa.html">Siswa</a> &rsaquo;&rsaquo; </div>
+				</div>
+			<div id="topic_header_nav">
+				<a href="Siswa.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				<a href="Siswa.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				<a href="Spesifikasi.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				</div>
+			<div class="clear"></div>
+		</div>
+	<div id="topic_content">
+		
+<p></p>
+<p class="rvps3"><span class="rvts8"><br/></span></p>
+<div class="rvps3"><table width="100%" border="1" cellpadding="1" cellspacing="2" style="border-color: #000000; border-style: solid; background-color: #ffffff; border-spacing: 2px;">
+<tr valign="top">
+<td width="264" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts13">Nama </span></p>
+</td>
+<td width="788" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts8">API login siswa</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="264" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts13">URL</span></p>
+</td>
+<td width="788" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts8">http://localhost/pkbmksi-web/api/v1/siswa/login</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="264" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts13">Method</span><span class="rvts13"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+</td>
+<td width="788" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts8">POST</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="264" height="18" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts13">Tipe Data </span></p>
+</td>
+<td width="788" height="18" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts8">JSON</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="264" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts13">Parameter</span></p>
+</td>
+<td width="788" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts8">idsiswa &amp; password (md5)</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="264" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts13">Contoh Parameter</span></p>
+</td>
+<td width="788" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts8">{ "idsiswa": "KSI00115001","password": "25d55ad283aa400af464c76d713c07ad" }</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="264" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts13">Response</span></p>
+</td>
+<td width="788" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts8">JWT Token dengan payload data berisi response , role , dan data .</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="264" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts13">Contoh response</span></p>
+</td>
+<td width="788" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts8">eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.</span></p>
+<p class="rvps3"><span class="rvts8">eyJyZXNwb25zZSI6Ik9LIiwicm9sZSI6IjMiLCJkYXRhIjp7ImlkX3Npc3dhIjoiS1NJMDAxMTUwMDEifX0.</span></p>
+<p class="rvps3"><span class="rvts8">hUdpfJ2LoouM5-40pvDRdqTDYrgZS2M18u9GGF58-8</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="264" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts13">Response setelah decode </span><span class="rvts13"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+</td>
+<td width="788" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts8">{ &nbsp;"typ": "JWT",</span></p>
+<p class="rvps3"><span class="rvts8"> &nbsp;"alg": "HS256"</span></p>
+<p class="rvps3"><span class="rvts8">}{</span></p>
+<p class="rvps3"><span class="rvts8"> &nbsp;"response": "OK",</span></p>
+<p class="rvps3"><span class="rvts8"> &nbsp;"role": "3",</span></p>
+<p class="rvps3"><span class="rvts8"> &nbsp;"data": { &nbsp; &nbsp;</span></p>
+<p class="rvps3"><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "id_siswa": "KSI00115001" &nbsp;</span></p>
+<p class="rvps3"><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p class="rvps3"><span class="rvts8">}</span></p>
+<p class="rvps3"><span class="rvts8"><br/></span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="264" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts13">Logic Server</span><span class="rvts8"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+</td>
+<td width="788" style="border-color: #000000; border-style: solid; padding: 1px;"><p class="rvps3"><span class="rvts8">1. Terima input JSON dari client berisi idsiswa dan password</span></p>
+<p class="rvps3"><span class="rvts8">2. Decode JSON yang telah diterima </span></p>
+<p class="rvps3"><span class="rvts8">3. Tampung idsiswa dan password dalam array.</span></p>
+<p class="rvps3"><span class="rvts8">4. Parsing data array ke model untuk query di database untuk di validasi</span></p>
+<p class="rvps3"><span class="rvts8">5. Jika validasi benar, maka bentuk array berisi response,role,dan data</span></p>
+<p class="rvps3"><span class="rvts8">6. Encode Json berisi array tadi dengan JWT agar lebih aman. </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps3"><span class="rvts8"><br/></span></p>
+<p class="rvps3"><span class="rvts8"><br/></span></p>
+<p class="rvps3"><span class="rvts13"><br/></span></p>
+<p class="rvps3"><span class="rvts8"><br/></span></p>
+<p class="rvps3"><span class="rvts8"><br/></span></p>
+<p class="rvps5"><span class="rvts8"><br/></span></p>
+<p></p>
+<p class="rvps2"><span class="rvts6">Created with the Personal Edition of HelpNDoc: </span><a class="rvts7" href="http://www.helpndoc.com">Full-featured Documentation generator</a></p>
+</div>
+	
+	<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;Dates&gt; by &lt;Authors&gt;. All Rights Reserved.</div>
+		</div>
+	</body>
+	
+</html>
+

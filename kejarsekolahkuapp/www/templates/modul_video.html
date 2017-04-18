@@ -1,0 +1,30 @@
+<ion-view view-title="Video Pembelajaran" style="background-color:#d7dfef" cache-view="false">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div ng-if="modulVideo == true">
+            <div class="card">
+                <div class="item item-divider">
+                    {{output.judul}}
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <ng-youtube-embed url="output.video" autoplay="false" color="white" disablekb="true" width="100%">
+                        </ng-youtube-embed>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="modulVideo == false">
+
+            <div class="card">
+                <div class="item item-text-wrap">
+                    <i class="icon ion-close-circled"></i> Mohon maaf, video belum tersedia untuk modul ini
+                </div>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

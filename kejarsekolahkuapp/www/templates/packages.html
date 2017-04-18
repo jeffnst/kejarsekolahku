@@ -1,0 +1,24 @@
+<ion-view view-title="Paket Pembelajaran" style="background-color:#d7dfef" cache-view ="false">        
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>
+    </ion-nav-buttons>
+    <ion-content >                                  
+        <div class="list " style="margin-top:-2px;">
+            <a class="item item-icon-left item-divider positive-bg" >                
+                <i style="color:white" class="icon ion-cube"></i>
+                <h2 style="color:white">{{output.nama_paket}}</h2>
+                <p style="color:white">{{output.jumlah_matpel}} Mata Pelajaran</p>                
+            </a>
+        </div>
+
+        <div class="list card" ng-repeat="item in output.paket_matpel">
+
+            <a href="#" class="item item-icon-left" ui-sref="home.matpel({matpelId: item.id_matpel})">
+                <i class="icon ion-android-bookmark"></i>
+                <h3>{{item.nama_matpel}}</h3>
+                <p>{{item.keterangan_matpel}}</p>
+            </a>           
+
+        </div>
+    </ion-content>
+</ion-view>

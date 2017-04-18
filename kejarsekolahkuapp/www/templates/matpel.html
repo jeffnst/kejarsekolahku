@@ -1,0 +1,23 @@
+<ion-view view-title="Mata Pelajaran" style="background-color:#d7dfef" cache-view ="false">        
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>
+    </ion-nav-buttons>
+    <ion-content > 
+
+        <div class="list" style="margin-top:-1%;">
+            <a style="color:white" class="item item-icon-left item-divider positive-bg" >
+                <i style="color:white" class="icon ion-android-bookmark"></i>                
+                <small style="color:white">{{output.detail_matpel[0].keterangan}}</small>
+                <p style="color:white">{{output.jumlah_modul}} Modul</p>
+            </a>
+        </div>        
+        <div class="list card" ng-repeat="item in output.modul_matpel">
+
+            <a href="#" class="item item-icon-left" ui-sref="home.modul({modulId: item.id_modul})">
+                <i class="icon ion-android-attach"></i>
+                <h3>{{item.judul_modul}}</h3>                
+            </a>           
+
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,40 @@
+<!--style="background-image: url('img/bg.jpg');"-->
+<ion-view view-title="Mata Pelajaran"  style="background-color:#d7dfef" cache-view ="false">    
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>
+    </ion-nav-buttons>
+    <ion-content >    
+
+        <div class="list positive-border" style="margin-top:-2px;">
+            <a style="color:white" class="item item-icon-left item-divider positive-bg item-text-wrap" >
+                <i style="color:white" class="icon icon ion-android-clipboard"></i>                
+                <strong style="color:white">{{output.nama_paket}}</strong>                               
+                <p style="color:white">Total Mata Pelajaran : 10</p>
+            </a>            
+            <a class="item item-icon-left" >                
+                <i class="icon ion-android-send"></i>
+                Jumlah Mata Pelajaran
+                <span class="badge badge-balanced">{{output.total_matpel}}</span>
+            </a>
+            <a class="item item-icon-left" >                
+                <i class="icon ion-android-send"></i>        
+                Jumlah Mata Pelajaran Tuntas
+                <span class="badge badge-balanced">{{}}</span>
+            </a>
+
+        </div>
+
+
+        <div class="list card" ng-repeat="item in output.data_nilai">
+            <a href="#" class="item item-icon-left item-icon-right item-text-wrap" ui-sref="home.nilai_matpel({matpelId: item.id_matpel})">                                
+                <i class="icon ion-android-bookmark"></i>
+                <h3>{{item.nama_matpel}}</h3>                
+                <p>Jumlah Modul : {{item.total_modul_matpel}} | Modul Selesai : {{item.total_modul_selesai}}</p>
+                <span class="item-note" ng-if="item.total_modul_matpel == item.total_modul_selesai">
+                    <i class="icon ion-android-checkmark-circle energized"></i>
+                </span>
+            </a>
+        </div>
+
+    </ion-content>
+</ion-view>

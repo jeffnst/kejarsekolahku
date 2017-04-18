@@ -1,0 +1,61 @@
+<!--<ion-nav-view name="home-dashboard">    </ion-nav-view>-->
+<ion-view view-title="Dashboard" cache-view ="false" style="background-color:#d7dfef ;background-repeat: repeat;">    
+          <ion-content>        
+        <div style="padding-bottom: 3px; " class="positive-bg">
+            <center>
+                <img src="{{output.image_profile_dir}}"  class="imgfront">               
+                <h3 class="namefront"><strong>Hai, {{output.profil.nama_siswa}}</strong></h3>
+                <h5 class="namefront">{{output.profil.id_siswa}}</h5>                
+
+            </center >
+
+        </div>        
+        <div class="list">
+                <a class="item stable-bg stable-border" >
+                <strong style="color: #133877;">                
+                    <center> {{output.paket}} - {{output.jumlah_matpel}} Mata Pelajaran - {{output.jumlah_modul}} Modul </center>
+                    <center><p>{{output.ket_paket}}</p></center>
+                </strong>
+            </a>
+        </div>
+        <div class="list ">
+<!--            <div class="card stable-bg">
+                <a ui-sref="home.packages" class="item item-icon-left item-icon-left">
+                    <i class="icon ion-cube"></i>                        
+                    <h3>Mata Pelajaran</h3>                        
+                    <p>{{output.jumlah_matpel}} Mata Pelajaran</p>
+                </a>
+            </div>-->
+
+            <div class="card">
+                <a ui-sref="home.nilai" class="item item-icon-left">
+                    <i class="icon ion-cube"></i>   
+                    <h3>Mata Pelajaran</h3>
+                    <p>{{output.jumlah_matpel}} Mata Pelajaran</p>
+                </a>
+            </div>
+
+            <div class="card stable-bg">
+                <a ui-sref="home.packages" class="item item-icon-left">
+                    <i class="icon ion-wand"></i>
+                    <h3>Karir</h3>
+                    <p>4 Lowongan</p>
+                </a>
+            </div>
+
+            <div class="card stable-bg">
+                <a ui-sref="home.profile" class="item item-icon-left">
+                    <i class="icon ion-person"></i>
+                    <h3>Profil Siswa</h3>   
+                    <p>{{output.profil.nama_siswa}}</p>
+                </a>  
+            </div>
+
+
+        </div>
+
+
+
+    </ion-content>
+</ion-view>
+
